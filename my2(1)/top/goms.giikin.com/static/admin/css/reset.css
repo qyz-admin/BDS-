@@ -1,0 +1,165 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acrom,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,ar,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,
+thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+	font-family: 'arial''微軟雅黑';
+	background: #F7F7F7;
+}
+
+ol,ul,li {
+	list-style: none;
+}
+
+blockquote,q {
+	quotes: none;
+}
+
+blockquote:before,blockquote:after,q:before,q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a {
+	list-style: none;
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none
+}
+
+input[type=password],
+input[type=text],
+textarea {
+	resize: none;
+	outline: 0;
+	-webkit-appearance: none;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	background: #fff
+}
+/*placeholder css*/
+::-moz-placeholder{ font-family: "Microsoft YaHei"}              
+::-webkit-input-placeholder{ font-family: "Microsoft YaHei"}    
+:-ms-input-placeholder{ font-family: "Microsoft YaHei"}
+
+:focus {
+	outline: none;
+}
+
+.flex {
+	display: flex !important;
+	display: -webkit-box !important;
+	display: -webkit-flex !important;
+}
+
+.flex-column {
+	display: flex !important;
+	display: -webkit-box !important;
+	display: -webkit-flex !important;
+	flex-direction: column;
+	-webkit-flex-direction: column;
+}
+
+
+.flex-item-between {
+	justify-content: space-between;
+	-webkit-justify-content: space-between;
+}
+
+.flex-item-around {
+	justify-content: space-around;
+	-webkit-justify-content: space-around;
+}
+
+.flex-item-mid {
+	align-items: center;
+	-webkit-align-items: center;
+}
+
+.flex-item-stretch {
+	align-items: stretch;
+	-webkit-align-items: stretch;
+}
+
+.flex-item-center {
+	justify-content: center;
+	-webkit-justify-content: center;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+}
+
+.ellipsis1 {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ellipsis2 {
+	text-overflow: -o-ellipsis-lastline;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+.clearfix:after {
+	display: block;
+	content: '';
+	clear: both;
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+.bgf {
+	background: #fff;
+}
+
+.font-color {
+	color: #333;
+}
+.hide-scrcoll::-webkit-scrollbar{
+	display: none;
+}
+.fr{
+	float: right;
+}
+/* 定位方式 */
+.ps {position: static; }
+.pr {position: relative;zoom:1; }
+.pa {position: absolute; }
+.pf {position: fixed; }
+ 
+ 
+/* 垂直对齐方式 */
+.vt {vertical-align: top; }
+.vm {vertical-align: middle; }
+.vb {vertical-align: bottom; }

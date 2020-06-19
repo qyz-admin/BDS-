@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<head>
+<meta charset="utf-8">'
+<title>吉客印【正式】后台</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="" name="description">
+<meta content="" name="author">
+<!-- BEGIN GLOBAL STYLES -->
+<link href="https://goms.giikin.com/static/admin/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://goms.giikin.com/static/admin/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
+<link href="https://goms.giikin.com/static/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="https://goms.giikin.com/static/admin/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css">
+<!-- BEGIN THIS PAGE -->
+
+<!-- BEGIN GLOBAL STYLES -->
+<link href="https://goms.giikin.com/static/admin/css/components.min.css" rel="stylesheet" type="text/css">
+<link href="https://goms.giikin.com/static/admin/css/plugins.min.css" rel="stylesheet" type="text/css">
+<!-- BEGIN THEME GLOBAL STYLES -->
+<link href="https://goms.giikin.com/static/admin/css/layout.min.css" rel="stylesheet" type="text/css">
+<link href="https://goms.giikin.com/static/admin/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color">
+<link href="https://goms.giikin.com/static/admin/css/common.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://goms.giikin.com/static/layui/css/layui.css" media="all">
+<link id="layuicss-skinlayercss" rel="stylesheet" href="https://goms.giikin.com/static/layui/css/modules/layer/default/layer.css?v=3.0.3303" media="all">
+<link rel="shortcut icon" href="https://goms.giikin.com/static/admin/img/favicon.ico">
+<style>
+    .page-content-wrapper .page-content {margin-top: 0;min-height: 600px;padding: 0px 0px 5px;margin-left: 0;}
+    .page-header-fixed .page-container {margin-top: 0px;}
+	  .page-bar{display:none;}
+ </style>
+<script type="text/javascript" src="https://libs.baidu.com/jquery/1.9.0/jquery.js" charset="utf-8"></script>
+<script type="text/javascript" src="https://goms.giikin.com/static/layui/lay/modules/layer.js" charset="utf-8"></script>
+</head>
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
+<div class="page-wrapper">
+      <div class="clearfix"></div>
+      <div class="page-container">
+        <div class="page-content-wrapper">
+         <div class="page-content" style="overflow: scroll;min-height: 812px;">
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li><a href="https://goms.giikin.com/admin/index/index.html">Home</a><i class="fa fa-circle"></i></li><li><span>信息表</span></li>
+                </ul>
+            </div>
+<div class="row">
+    <div class="col-md-12">
+                <div class="portlet box green">
+                  <div class="portlet-title">
+                      <div class="caption">
+                        <i class="fa icon-settings"></i>信息表
+                     </div>
+                  </div>
+                  <div class="portlet-body">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;text-align:center;"><legend>备忘录【单击复制】</legend></fieldset>
+        <div class="row" style="margin-bottom:10px;">
+             <div class="col-md-6">
+                       <div class="layui-card">
+                        <div class="layui-card-header" style="font-size: 28px;">邮箱</div>
+                         <div class="layui-card-body">
+                          <div class="layui-form">
+                           <table class="layui-table">
+                               <colgroup><col width="150"><col width="150"><col width="200"><col></colgroup>
+                               <thead><tr><th>前称</th><th>后缀</th><th>密码</th><th>快捷登陆</th></tr></thead>
+                               <tbody>
+                                 <tr>
+                                   <td onclick="ad2(0)"><div class="js-copy" data-clipboard-text="service"><span>service</span></div>
+                                   <td onclick="ad2(1)"><div class="js-copy" data-clipboard-text="libaka.tw"><span>libaka.tw</span></div></td>
+                                   <td onclick="ad2(2)"><div class="js-copy" data-clipboard-text="libaka@gk.2018!"><span>libaka@gk.2018!</span></div></td><td>
+        <form name="frm1" action="https://sso-n.global-mail.cn/casserver/login?outer=true" method="POST" target="_blank">
+        <input type="hidden" name="username" value="service@libaka.tw">
+        <input type="hidden" name="password" value="libaka@gk.2018!">
+        <input type="hidden" name="keepAccount" value="on">
+        <input type="hidden" name="service" value="https://ssl-n.global-mail.cn/app/mail/index">
+        <input type="hidden" name="systemid" value="app">
+        <input type="hidden" name="keepAccount" value="on">
+        <button type="submit" class="layui-btn layui-btn-primary layui-btn-fluid layui-btn-lg">libaka &nbsp &nbsp &nbsp &nbsp &nbsp普通 1</button></form>
+             </td></tr>                               
+                  <tr>
+                                   <td onclick="ad2(3)"><div class="js-copy" data-clipboard-text="service"><span>service</span></div>
+                                   <td onclick="ad2(4)"><div class="js-copy" data-clipboard-text="yoyomall.tw"><span>yoyomall.tw</span></div></td>
+                                   <td onclick="ad2(5)"><div class="js-copy" data-clipboard-text="Service123"><span>Service123</span></div></td>
+             <td>
+      <form name="frm1" action="https://sso-n.global-mail.cn/casserver/login?outer=true" method="POST" target="_blank">
+       <input type="hidden" name="username" value="service@yoyomall.tw">
+       <input type="hidden" name="password" value="Service123">
+       <input type="hidden" name="keepAccount" value="on">
+       <input type="hidden" name="service" value="https://ssl-n.global-mail.cn/app/mail/index">
+       <input type="hidden" name="systemid" value="app">
+       <input type="hidden" name="keepAccount" value="on">
+       <button type="submit" class="layui-btn layui-btn-primary layui-btn-fluid layui-btn-lg">yoyomall &nbsp &nbsp 普通 2</button></form>
+             </td></tr>
+                                   <td onclick="ad2(6)"><div class="js-copy" data-clipboard-text="service"><span>service</span></div>
+                                   <td onclick="ad2(7)"><div class="js-copy" data-clipboard-text="vivishop.tw"><span>vivishop.tw</span></div></td>
+                                   <td onclick="ad2(8)"><div class="js-copy" data-clipboard-text="Service@123"><span>Service@123</span></div></td>
+             <td>
+     <form name="frm1" action="https://sso-n.global-mail.cn/casserver/login?outer=true" method="POST" target="_blank">
+       <input type="hidden" name="username" value="service@vivishop.tw">
+       <input type="hidden" name="password" value="Service@123">
+       <input type="hidden" name="keepAccount" value="on">
+       <input type="hidden" name="service" value="https://ssl-n.global-mail.cn/app/mail/index">
+       <input type="hidden" name="systemid" value="app">
+       <input type="hidden" name="keepAccount" value="on">
+       <button type="submit" class="layui-btn layui-btn-primary layui-btn-fluid layui-btn-lg">vivishop &nbsp &nbsp &nbsp普通 3</button></form>
+             </td></tr>
+                                   <td onclick="ad2(9)"><div class="js-copy" data-clipboard-text="service"><span>service</span></div>
+                                   <td onclick="ad2(10)"><div class="js-copy" data-clipboard-text="cocomall.tw"><span>cocomall.tw</span></div></td>
+                                   <td onclick="ad2(11)"><div class="js-copy" data-clipboard-text="Service123"><span>Service123</span></div></td>
+             <td>
+     <form name="frm1" action="https://sso-n.global-mail.cn/casserver/login?outer=true" method="POST" target="_blank">
+       <input type="hidden" name="username" value="service@cocomall.tw">
+       <input type="hidden" name="password" value="Service123">
+       <input type="hidden" name="keepAccount" value="on">
+       <input type="hidden" name="service" value="https://ssl-n.global-mail.cn/app/mail/index">
+       <input type="hidden" name="systemid" value="app">
+       <input type="hidden" name="keepAccount" value="on">
+       <button type="submit" class="layui-btn layui-btn-primary layui-btn-fluid layui-btn-lg">cocomall &nbsp &nbsp普通 4</button></form>
+             </td></tr>
+                                   <td onclick="ad2(12)"><div class="js-copy" data-clipboard-text="service"><span>service</span></div>
+                                   <td onclick="ad2(13)"><div class="js-copy" data-clipboard-text="mo11shop.com"><span>mo11shop.com</span></div></td>
+                                   <td onclick="ad2(14)"><div class="js-copy" data-clipboard-text="Service123"><span>Service123</span></div></td>
+             <td>
+     <form name="frm1" action="https://sso-n.global-mail.cn/casserver/login?outer=true" method="POST" target="_blank">
+       <input type="hidden" name="username" value="service@mo11shop.com">
+       <input type="hidden" name="password" value="Service123">
+       <input type="hidden" name="keepAccount" value="on">
+       <input type="hidden" name="service" value="https://ssl-n.global-mail.cn/app/mail/index">
+       <input type="hidden" name="systemid" value="app">
+       <input type="hidden" name="keepAccount" value="on">
+       <button type="submit" class="layui-btn layui-btn-primary layui-btn-fluid layui-btn-lg">mo11shop 普通 5</button></form>
+             </td></tr>
+                                   <td onclick="ad2(15)"><div class="js-copy" data-clipboard-text="service"><span>service</span></div>
+                                   <td onclick="ad2(16)"><div class="js-copy" data-clipboard-text="lycocode.com"><span>lycocode.com</span></div></td>
+                                   <td onclick="ad2(17)"><div class="js-copy" data-clipboard-text="Taiwan1011#9120"><span>Taiwan1011#9120</span></div></td>
+             <td>
+     <form name="frm1" action="https://sso-n.global-mail.cn/casserver/login?outer=true" method="POST" target="_blank">
+       <input type="hidden" name="username" value="service@lycocode.com">
+       <input type="hidden" name="password" value="Taiwan1011#9120">
+       <input type="hidden" name="keepAccount" value="on">
+       <input type="hidden" name="service" value="https://ssl-n.global-mail.cn/app/mail/index">
+       <input type="hidden" name="systemid" value="app">
+       <input type="hidden" name="keepAccount" value="on">
+       <button type="submit" class="layui-btn layui-btn-primary layui-btn-fluid layui-btn-lg">lycocode &nbsp &nbsp 普通 6</button></form>
+             </td></tr>
+                                   <td onclick="ad2(18)"><div class="js-copy" data-clipboard-text="service"><span>service</span></div>
+                                   <td onclick="ad2(19)"><div class="js-copy" data-clipboard-text="geegonlie.com"><span>geegonlie.com</span></div></td>
+                                   <td onclick="ad2(20)"><div class="js-copy" data-clipboard-text="geego@tw88!/"><span>geego@tw88!/</span></div></td>
+             <td>
+     <form name="frm1" action="https://sso-n.global-mail.cn/casserver/login?outer=true" method="POST" target="_blank">
+       <input type="hidden" name="username" value="service@geegonlie.com">
+       <input type="hidden" name="password" value="geego@tw88!">
+       <input type="hidden" name="keepAccount" value="on">
+       <input type="hidden" name="service" value="https://ssl-n.global-mail.cn/app/mail/index">
+       <input type="hidden" name="systemid" value="app">
+       <input type="hidden" name="keepAccount" value="on">
+       <button type="submit" class="layui-btn layui-btn-primary layui-btn-fluid layui-btn-lg">geegonlie &nbsp&nbsp普通 7</button></form>
+             </td></tr>
+                                   <td onclick="ad2(21)"><div class="js-copy" data-clipboard-text="service"><span>service</span></div>
+                                   <td onclick="ad2(22)"><div class="js-copy" data-clipboard-text="cocalot.com"><span>cocalot.com</span></div></td>
+                                   <td onclick="ad2(23)"><div class="js-copy" data-clipboard-text="Line.tw@2019/"><span>Line.tw@2019/</span></div></td>
+             <td>
+     <form name="frm1" action="https://sso-n.global-mail.cn/casserver/login?outer=true" method="POST" target="_blank">
+       <input type="hidden" name="username" value="service@cocalot.com">
+       <input type="hidden" name="password" value="Line.tw@2019/">
+       <input type="hidden" name="keepAccount" value="on">
+       <input type="hidden" name="service" value="https://ssl-n.global-mail.cn/app/mail/index">
+       <input type="hidden" name="systemid" value="app">
+       <input type="hidden" name="keepAccount" value="on">
+       <button type="submit" class="layui-btn layui-btn-primary layui-btn-fluid layui-btn-lg">cocalot &nbsp &nbsp &nbsp &nbsp普通 8</button></form>
+             </td></tr>
+          </tbody>
+      </table>
+                  <br>
+                  <a href="http://tvlove.club/giikin/set/email.html" target="_blank"><span style="color:red;">备用1</span>-快捷郵箱地址&nbsp;&nbsp;&nbsp;http://tvlove.club/giikin/set/email.html</a>
+                  <br>
+                  <a href="https://qyz-admin.github.io/Email/email" target="_blank"><span style="color:red;">备用2</span>-快捷郵箱地址：&nbsp;&nbsp;&nbsp;https://qyz-admin.github.io/Email/email</a>
+                <br>
+                <br>
+                </div>
+          </div>
+        </div>
+    </div><!-- //111111-->
+    <div class="col-md-6"><!-- //22222-->
+               <div class="layui-card">
+                   <div class="layui-card-header" style="font-size: 30px;">Line</div>
+                   <div class="layui-card-body">
+                       <div class="layui-form">
+                           <table class="layui-table">
+                               <colgroup><col width="150"><col width="150"><col width="200"><col></colgroup>
+                               <thead><tr><th>类型</th><th>I D</th><th>账号</th><th>密码</th></tr></thead>
+                               <tbody><tr><td>售后</td>
+                                   <td onclick="ad2(24)"><div class="js-copy" data-clipboard-text="a5432678"><span>a5432678</span></div></td>
+                                   <td onclick="ad2(25)"><div class="js-copy" data-clipboard-text="a1812375850@gmail.com"><span>a1812375850@gmail.com</span></div></td>
+                                   <td onclick="ad2(26)"><div class="js-copy" data-clipboard-text="009988.qaz"><span>009988.qaz</span></div></td></tr>
+                               <tr><td>售后</td><td></td>
+                                   <td onclick="ad2(27)"><div class="js-copy" data-clipboard-text="jkydev@163.com"><span>jkydev@163.com</span></div></td>
+                                   <td onclick="ad2(28)"><div class="js-copy" data-clipboard-text="geego123456"><span>geego123456</span></div></td></tr>
+                               <tr><td>售后</td><td></td>
+                                   <td onclick="ad2(29)"><div class="js-copy" data-clipboard-text="594580153@qq.com"><span>594580153@qq.com</span></div></td>
+                                   <td onclick="ad2(30)"><div class="js-copy" data-clipboard-text="jikeyin.123"><span>jikeyin.123</span></div></td></tr>
+                               <tr><td>商城</td><td></td>
+                                   <td onclick="ad2(31)"><div class="js-copy" data-clipboard-text="848750869@qq.com"><span>848750869@qq.com</span></div></td>
+                                   <td onclick="ad2(32)"><div class="js-copy" data-clipboard-text="123456qaz"><span>123456qaz</span></div></td></tr>
+                              <tr><td>客诉件</td><td></td>
+                                   <td onclick="ad2(33)"><div class="js-copy" data-clipboard-text="765351485@qq.com"><span>765351485@qq.com</span></div></td>
+                                   <td onclick="ad2(34)"><div class="js-copy" data-clipboard-text="123456789qaz"><span>123456789qaz</span></div></td></tr>
+                              <tr><td>大客户</td>
+                                   <td onclick="ad2(35)"><div class="js-copy" data-clipboard-text="6provence"><span>6provence</span></div></td>
+                                   <td onclick="ad2(36)"><div class="js-copy" data-clipboard-text="a1769235920@gmail.com"><span>a1769235920@gmail.com</span></div></td>
+                                   <td onclick="ad2(37)"><div class="js-copy" data-clipboard-text="sunan1022wang."><span>sunan1022wang.</span></div></td></tr>
+                               <tr><td>不知道</td><td></td>
+                                   <td onclick="ad2(38)"><div class="js-copy" data-clipboard-text="1812375850@qq.com"><span>1812375850@qq.com</span></div></td>
+                                   <td onclick="ad2(39)"><div class="js-copy" data-clipboard-text="qaz123."><span>qaz123.</span></div></td></tr>
+                               </tbody>
+                           </table>
+                         </div>
+                       </div>
+                    </div>
+                    </div><!-- //22222-->
+                               <br>
+                                <br>
+                                <hr>
+                                <div class="portlet-body">
+
+       <div class="row" style="margin-bottom:10px;">
+           <div class="col-md-6"><!-- 444444444-->
+               <div class="layui-card">
+                   <div class="layui-card-header" style="font-size: 28px;">商务通账号</div>
+                   <div class="layui-card-body">
+                       <div class="layui-form">
+                           <table class="layui-table">
+                               <colgroup><col width="150"><col width="150"><col width="200"><col></colgroup>
+                               <thead><tr><th>账号</th><th>昵称</th><th>密码</th><th>使用者</th></tr></thead>
+                               <tbody><tr>
+                                   <td onclick="ad2(40)"><div class="js-copy" data-clipboard-text="MHN74355580"><span>MHN74355580</span></div></td>
+                                   <td onclick="ad2(41)"><div class="js-copy" data-clipboard-text="阿雅"><span>主号</span></div></td>
+                                   <td onclick="ad2(42)"><div class="js-copy" data-clipboard-text="yisainuo"><span>yisainuo</span></div></td></tr>
+                               <tr>
+                                   <td onclick="ad2(43)"><div class="js-copy" data-clipboard-text="LEF21785856"><span>LEF21785856</span></div></td>
+                                   <td onclick="ad2(44)"><div class="js-copy" data-clipboard-text="阿貞，阿潔"><span>阿貞，阿潔</span></div></td>
+                                   <td onclick="ad2(45)"><div class="js-copy" data-clipboard-text="yisainuo"><span>yisainuo</span></div></td></tr>
+                               <tr>
+                                   <td onclick="ad2(46)" style="color:red;"><div class="js-copy" data-clipboard-text="LEF29968484"><span>LEF29968484</span></div></td>
+                                   <td onclick="ad2(47)" style="color:red;"><div class="js-copy" data-clipboard-text="可可"><span>可可</span></div></td>
+                                   <td onclick="ad2(48)" style="color:red;"><div class="js-copy" data-clipboard-text="yisainuo"><span>yisainuo</span></div></td></tr>
+                               <tr>
+                                   <td onclick="ad2(49)" style="color:red;"><div class="js-copy" data-clipboard-text="LEF61392403"><span>LEF61392403</span></div></td>
+                                   <td onclick="ad2(50)" style="color:red;"><div class="js-copy" data-clipboard-text="阿嬌"><span>阿嬌</span></div></td>
+                                   <td onclick="ad2(51)" style="color:red;"><div class="js-copy" data-clipboard-text="aj0000"><span>aj0000</span></div></td></tr>
+                              <tr>
+                                   <td onclick="ad2(52)" style="color:red;"><div class="js-copy" data-clipboard-text="LEF92795858"><span>LEF92795858</span></div></td>
+                                   <td onclick="ad2(53)" style="color:red;"><div class="js-copy" data-clipboard-text="阿杰"><span>阿杰</span></div></td>
+                                   <td onclick="ad2(54)" style="color:red;"><div class="js-copy" data-clipboard-text="yisainuo"><span>yisainuo</span></div></td></tr>
+                              <tr>
+                                   <td onclick="ad2(55)" style="color:red;"><div class="js-copy" data-clipboard-text="LEF66352023"><span>LEF66352023</span></div></td>
+                                   <td onclick="ad2(56)" style="color:red;"><div class="js-copy" data-clipboard-text="阿奈"><span>阿奈</span></div></td>
+                                   <td onclick="ad2(57)" style="color:red;"><div class="js-copy" data-clipboard-text="yisainuo"><span>yisainuo</span></div></td></tr>
+                              <tr>
+                                   <td onclick="ad2(58)"><div class="js-copy" data-clipboard-text="LEF32552906"><span>LEF32552906</span></div></td>
+                                   <td onclick="ad2(59)"><div class="js-copy" data-clipboard-text="阿琦，阿文"><span>阿琦/阿文</span></div></td>
+                                   <td onclick="ad2(60)"><div class="js-copy" data-clipboard-text="yisainuo"><span>yisainuo</span></div></td></tr>
+                              <tr>
+                                   <td onclick="ad2(61)" style="color:red;"><div class="js-copy" data-clipboard-text="LEF42180521"><span>LEF42180521</span></div></td>
+                                   <td onclick="ad2(62)" style="color:red;"><div class="js-copy" data-clipboard-text="小吉，小穎  ，小雯"><span>小吉，小穎  ，小雯</span></div></td>
+                                   <td onclick="ad2(63)" style="color:red;"><div class="js-copy" data-clipboard-text="jikeyin"><span>jikeyin</span></div></td></tr>
+                               </tbody>
+                           </table>
+                         </div>
+                       </div>
+                    </div>
+                    </div><!-- //444444-->
+              <div class="col-md-6"><!-- //3333333311111-->
+               <div class="layui-card">
+                   <div class="layui-card-header" style="font-size: 28px;">商城后台</div>
+                   <div class="layui-card-body">
+                       <div class="layui-form">
+                           <table class="layui-table">
+                               <colgroup><col width="150"><col width="150"><col width="200"><col></colgroup>
+                               <thead><tr><th>类别</th><th>账号</th><th>密码</th><th>网址</th></tr></thead>
+                               <tbody>
+                               <tr>
+                                   <td onclick="ad2(64)"><div class="js-copy" data-clipboard-text="VIVISHOP"><span>VIVISHOP</span></div></td>
+                                   <td onclick="ad2(65)"><div class="js-copy" data-clipboard-text="tw_admin"><span>tw_admin</span></div></td>
+                                   <td onclick="ad2(66)"><div class="js-copy" data-clipboard-text="tw123456"><span>tw123456</span></div></td>
+                                   <td onclick="ad2(67)" style="word-break:break-all; word-wrap:break-all;"><div class="js-copy" data-clipboard-text="http://admin.vivishop.tw/index.php/admin/dashboard/index/store/6/key/2f2ae74d8e129269d3e1061918b9d2d0/"><span>http://admin.vivishop.tw/index.php/admin/dashboard/index/store/6/key/2f2ae74d8e129269d3e1061918b9d2d0/</span></div></td>
+                               </tr>
+                               <tr>
+                                   <td onclick="ad2(68)"><div class="js-copy" data-clipboard-text="cocomall"><span>cocomall</span></div></td>
+                                   <td onclick="ad2(69)"><div class="js-copy" data-clipboard-text="1769235920@qq.com"><span>1769235920@qq.com</span></div></td>
+                                   <td onclick="ad2(70)"><div class="js-copy" data-clipboard-text="sunan1022wang"><span>sunan1022wang</span></div></td>
+                                   <td onclick="ad2(71)" style="word-break:break-all; word-wrap:break-all;"><div class="js-copy" data-clipboard-text="https://uugo.myshopify.com/admin/orders"><span>https://uugo.myshopify.com/admin/orders</span></div></td>
+                               </tr>
+                               </tbody>
+                           </table>
+                         </div>
+                       </div>
+                    </div>
+                    </div><!-- //33333111111-->
+             <div class="col-md-6"><!-- //33333-->
+                 <div class="layui-card">
+                   <div class="layui-card-header" style="font-size: 28px;">短信账号</div>
+                   <div class="layui-card-body">
+                       <div class="layui-form">
+                           <table class="layui-table">
+                               <colgroup><col width="150"><col width="150"><col width="200"><col></colgroup>
+                               <thead><tr><th>账号</th><th>密码</th><th></th><th></th></tr></thead>
+                               <tbody>
+                               <tr>
+                                   <td onclick="ad2(72)"><div class="js-copy" data-clipboard-text="18736709763"><span>18736709763</span></div></td>
+                                   <td onclick="ad2(73)"><div class="js-copy" data-clipboard-text="826874"><span>826874</span></div></td>
+                                   <td></td><td></td>
+                               </tr>
+                               <tr>
+                                   <td onclick="ad2(74)"><div class="js-copy" data-clipboard-text="18530986333"><span>18530986333</span></div></td>
+                                   <td onclick="ad2(75)"><div class="js-copy" data-clipboard-text="18530986333"><span>18530986333</span></div></td>
+                                   <td></td><td></td>
+                               </tr>
+                               </tbody>
+                           </table>
+                         </div>
+                       </div>
+                    </div>
+                  </div><!-- //33333-->
+               </div>
+             </div>
+           </div>
+        </div>
+      </div><!-- //33333-->
+    </div>
+    </div>
+   </div>
+   </div>
+  </div>
+  </div>
+ </div>
+</div>
+</div>;
+
+ <script>
+function ad2(i){
+          var text05= document.getElementsByClassName("js-copy")[i].getAttribute("data-clipboard-text");
+              console.log(text05);
+          var textArea05 = document.createElement("textarea");
+              textArea05.value = text05;
+         document.body.appendChild(textArea05);
+              textArea05.select();
+         document.execCommand("copy");
+            layer.msg("Hello 复制成功", {icon: 6});
+         setTimeout(function () {
+            document.body.removeChild(textArea05);
+         }, 10);
+    };
+</script>
+                <script src="https://goms.giikin.com/static/admin/js/jquery.min.js"></script>
+                <script type="text/javascript" src="https://goms.giikin.com/static/layui/layui.js" charset="utf-8"></script>
+                <script>
+                    $(document).ready(function(){
+                        var group_id=17;
+                        var _group_id=group_id.split(',');
+                        var sendArr=[35,34,30,26,22,15,14,8,7,13];
+                        var _flag=false;
+                        for(var i=0;i<sendArr.length;i++){
+                           for(var j=0;j<_group_id.length;j++){
+                                if(sendArr[i]==_group_id[j] && !_flag){
+                                    _flag=true;
+                                    // target2();
+                                    setInterval(function(){
+                                        // target2();
+                                    },1000*60*30);
+                                }
+                            }
+                        }
+                        getContent();
+                        getNotice();
+                        setInterval(function () {
+                            getContent();
+                        },1000*60*10);
+                    });
+                    function getContent() {
+                        $.ajax({
+                            url:"https://goms.giikin.com/admin/order/warning.html",
+                            type:"post",
+                            dataType:"json",
+                            success:function(data){
+                                var num=0;
+                                $("#prompt").html('');
+                                $("#prompt").html(data.order_count);
+                                $("#prompt1").html(data.two_count);
+                                $("#prompt2").html(data.four_count);
+                                $("#prompt3").html(data.examine_goods);
+                                $("#prompt4").html(data.examine_faile);
+                                $("#prompt5").html(data.magento);
+                                if(data.examine_goods > 0 || data.examine_faile >0){
+                                    $('#sign').addClass('badge badge-default');
+                                    num=parseInt(num)+parseInt(data.examine_goods);
+                                    num=parseInt(num)+parseInt(data.examine_faile);
+                                    $('#sign').html(num);
+                                }
+                                //data-starttime="" data-endtime="" data-enddate="" data-startdate=""
+                                $('#_date').attr('data-starttime',data.start_time);
+                                $('#_date').attr('data-endtime',data.end_time);
+                                $('#_date').attr('data-enddate',data.enddate);
+                                $('#_date').attr('data-startdate',data.startdate);
+                            }
+                        });
+                    }
+                    function getNotice() {
+                        $.ajax({
+                            url:"https://goms.giikin.com/admin/notice/getnotice.html",
+                            type:"post",
+                            dataType:"json",
+                            success:function(data){
+                                console.log(data);
+                                $("#notice").html(data);
+                            }
+                        });
+                    }
+                    function target2(){
+                        var allPrice='';
+                        $.post('https://goms.giikin.com/admin/notice/targetNotice','',function (data){
+                            var msg=data.msg;
+                            if( msg != 0 && msg !='undefined' && data != '' && msg !=''){
+                                layui.use('layer',function(l){
+                                    layer.open({
+                                        type: 0,
+                                        title: '温馨提示',
+                                        shade:false,
+                                        // offset: 'rb',
+                                        offset: ['76%','80%'],
+                                        content: '<span style="font-size: 18px;">'+msg+'</span>',
+                                        btn: ['继续努力']
+                                    });
+                                });
+                            }
+                        },'json');
+                    }
+                    function gotoGoods(){
+                        var startdate=$('#_date').attr('data-startdate');
+                        var enddate=$('#_date').attr('data-enddate');
+                        var url="https://goms.giikin.com/admin/goods/goods.html?startdate2="+startdate+"&examine=2&enddate2="+enddate;
+                        window.open(url,'_blank');
+                    }
+                    function gotoUnaudited(){
+                        var startdate=$('#_date').attr('data-startdate');
+                        var enddate=$('#_date').attr('data-enddate');
+                        var url="https://goms.giikin.com/admin/order/index.html?startdate2="+startdate+"&status=2&enddate2="+enddate;
+                        window.open(url,'_blank');
+                    }
+                    function gotoPreUnau(){
+                        var starttime=$('#_date').attr('data-starttime');
+                        var endtime=$('#_date').attr('data-endtime');
+                        var url="https://goms.giikin.com/admin/order/index.html?starttime2="+starttime+"&status=2&endtime2="+endtime;
+                        window.open(url,'_blank');
+                    }
+                    function gotoPurchase() {
+                        var startdate=$('#_date').attr('data-startdate');
+                        var enddate=$('#_date').attr('data-enddate');
+                        var url="https://goms.giikin.com/admin/order/index.html?startdate2="+startdate+"&status=4&purchase=1&enddate2="+enddate;
+                        window.open(url,'_blank');
+                    }
+                </script>
+<script>
+    function clear_cache(){
+        var url = "https://goms.giikin.com/admin/index/clear.html";
+        if(window.confirm('确定清除缓存吗？'))
+        {
+            $.post(url,{},function(html){
+                var arr = $.parseJSON(html);
+                (arr.status=='ok')?alert('清除缓存成功'):alert('清除缓存失败');
+            });
+        }
+    }
+    //清除前端缓存
+    function clear_group_cache()
+    {
+        var cache_ip = ["13.251.184.151","52.77.185.203","18.136.209.127"];
+        if(window.confirm('确定清除前端缓存吗？'))
+        {
+            for(var i in cache_ip)
+            {
+                var url = "http://"+cache_ip[i]+"/frontend.php/index/clear_cache";
+                $.get(url);
+            }
+            alert('操作成功');
+        }
+    }
+    //清除语言包缓存
+    function clear_quick_cache() {
+        if(window.confirm('确定删除缓存吗？'))
+        {
+            var url = "https://goms.giikin.com/admin/clean/cls_lang";
+            jQuery.get(url,function(){
+                alert('操作成功');
+            });
+        }
+    }
+    function clear_tag_cache() {
+        if(window.confirm('确定删除缓存吗？'))
+        {
+            var url = "https://goms.giikin.com/admin/clean/cls_shopify_tag";
+            jQuery.get(url,function(){
+                alert('操作成功');
+            });
+        }
+    }
+</script>
+<script>
+    $(document).ready(function(){
+        // _getContents();
+    });
+    function _getContents(){
+        $.ajax({
+            url:"https://goms.giikin.com/admin/basics.ajax/getcontent.html",
+            type:"post",
+            dataType:"json",
+            success:function(data){
+                var msg=data.msg.shelfPro;
+                if( msg != 0 && msg !='undefined' && data != '' && msg !=''){
+                    layui.use('layer',function(l){
+                        layer.open({
+                            type: 1,
+                            title: '温馨提示',
+                            shade:false,
+                            area: ['43%','auto'],
+                            offset: 'rb',
+                            // offset: ['76%','80%'],
+                            content: '<span style="font-size: 16px;">'+msg+'</span>',
+                            btn: ['继续努力']
+                        });
+                    });
+                }
+            }
+        });
+    }
+</script>
+
+<script>
+    function del2(id,btn)
+    {
+        // 判断是否至少选择一项
+        $("#productdelete").show('slow');
+        $("#no_del_product").click(function(){
+            $("input[name='del_reason']").prop("checked",false)
+            $("#productdelete").hide();
+        });
+        //钉钉通知内容  商品下架发送钉钉消息给选品与采购
+        var _product_name=$(btn).attr('data-name');
+        var _dingContent='您好,您的商品['+_product_name+'];(商品ID:'+id+");已下架;请及时关注库存状态;";
+        // console.log($(btn).parents('tr'));
+        $('#ok_del_product').unbind("click");
+        $("textarea[name=dingContent]").val(_dingContent);
+        $("#ok_del_product").click(function(event) {
+            var reasonNum = $("input[name='del_reason']:checked").length;
+            if(reasonNum == 0) {
+                alert("请选择至少一项删除原因！");
+                return false;
+            }
+            var reasonList = new Array();
+            $("input[name='del_reason']:checked").each(function() {
+                reasonList.push($(this).val());
+            });
+            $("#productdelete").hide();
+            $("input[name='del_reason']").removeAttr("checked");
+            var _dingContent2=$('#dingContent').val();
+            // 批量选择
+            if(confirm("确定要下架该商品吗?")){
+                $.ajax({
+                    type: "POST",
+                    url: "https://goms.giikin.com/admin/goods/productdelete2.html",
+                    data: {'productId':id,'del_reason_id':reasonList.toString()},
+                    dataType: "json",
+                    success:function(data){
+                        if(data.status == 'ok'){
+                            alert(data.msg);
+                            var _dingContent3=_dingContent2+"下架原因:"+data.del_reason;
+                            if(confirm("发送钉钉消息给"+data.receiver_name)){
+
+                            }
+                            dingSend(data.receiver,_dingContent3);
+                            // $('#DataTable').DataTable().draw(false);
+                        }else{
+                            alert(data.content);
+                        }
+                    }
+                });
+            }
+        });
+        $('#dingContent').html('')
+    }
+    function dingSend(receiver,content){
+        url = 'https://goms.giikin.com/admin/basics.apis/senddingding.html';
+        $.ajax({
+            type: 'POST',
+            url: url,
+            // data:"receiver=204,204&content="+content,
+            data:"userId="+receiver+"&content="+content+"&contentImage=&contentTitle=发送人:齐元章",
+            success: function(html){
+                var data = $.parseJSON(html);
+                if(data.status == 'error'){
+                    layer.alert(data.msg, {
+                        title: '添加结果'
+                    });
+                }else{
+                    layer.msg(data.msg,{icon:1,time:800});
+                }
+            },
+            error:function(data){
+                layer.alert("数据库添加失败", {
+                    title: '添加结果'
+                });
+            },
+        });
+    }
+</script>
+ 
+<!--[if lt IE 9]>
+<script src="/static/admin/js/respond.min.js"></script>
+<script src="/static/admin/js/excanvas.min.js"></script>
+<script src="/static/admin/js/ie8.fix.min.js"></script>
+<![endif]-->
+<!-- BEGIN GLOBAL SCRIPTS -->
+<script src="https://goms.giikin.com/static/admin/js/jquery.min.js" type="text/javascript"></script>
+<script src="https://goms.giikin.com/static/admin/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://goms.giikin.com/static/admin/js/js.cookie.min.js" type="text/javascript"></script>
+<script src="https://goms.giikin.com/static/admin/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="https://goms.giikin.com/static/admin/js/jquery.blockui.min.js" type="text/javascript"></script>
+<!-- BEGIN THIS PAGE -->
+<!-- BEGIN THEME LAYOUT SCRIPTS -->
+<script src="https://goms.giikin.com/static/admin/js/app.min.js" type="text/javascript"></script>
+<script src="https://goms.giikin.com/static/admin/js/layout.min.js" type="text/javascript"></script>
+<script src="https://goms.giikin.com/static/admin/js/demo.min.js" type="text/javascript"></script>
+<script src="https://goms.giikin.com/static/admin/js/quick-sidebar.min.js" type="text/javascript"></script>
+<script src="https://goms.giikin.com/static/admin/js/demo.min.js" type="text/javascript"></script>
+<script src="https://goms.giikin.com/static/admin/js/tabs.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://goms.giikin.com/static/layui/layui.js" charset="utf-8"></script>
+<script>
+    function showmsg(msg)
+    {
+        layui.use('layer',function(l){
+            l.msg(msg);
+        });
+    }    
+    jQuery(document).ready(function(){               
+		var tt1 = jQuery(".page-content").height()-60;
+		$(".tab-pane iframe:first-child").height(tt1);
+		setInterval(function(){
+		    var tt = jQuery(".page-content").height()-60;
+		    if(tt!=tt1){
+		    	if(navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+		    		$(".tab-pane iframe:first-child").css("min-height",tt);
+		    	}else{
+		    		$(".tab-pane iframe:first-child").height(tt);
+		    	}
+		    }
+		},200);
+   });
+</script>
+
+<!--<script >-->
+<!--    var openTimes = null;-->
+<!--    $(document).ready(function(){-->
+<!--        openTimes = localStorage.getItem("openTimes");-->
+<!--        if(!openTimes) openTimes = 0;-->
+<!--        openTimes = parseInt(openTimes);-->
+<!--        localStorage.setItem("openTimes",openTimes + 1);-->
+<!--    },50);-->
+
+<!--    window.onunload = function () {-->
+<!--        openTimes = localStorage.getItem("openTimes");-->
+<!--        if(!openTimes) openTimes = 0;-->
+<!--        openTimes = parseInt(openTimes);-->
+<!--        localStorage.setItem("openTimes",openTimes - 1);-->
+<!--        if(localStorage.getItem("openTimes") == 0){-->
+<!--            $.ajax({-->
+<!--                type: "POST",//方法类型-->
+<!--                dataType: "json",//预期服务器返回的数据类型-->
+<!--                url: "/admin/login/renameSession.html" ,//url-->
+<!--                data: {},-->
+<!--                success:function (res) {-->
+
+<!--                }-->
+<!--            });-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
+
+</body>
+</html>

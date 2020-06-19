@@ -1,0 +1,274 @@
+<!doctype html>
+<html class="x-admin-sm">
+<head>
+    <meta charset="UTF-8">
+    <title>【很不正式】后台</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="pragma" content="no-cache"> 
+<meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"> 
+<meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/xadmin.css">
+    <script type="text/javascript" src="./lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/xadmin.js"></script>
+    <script type="text/javascript" src="./js//jquery.min.js"></script>
+    <script type="text/javascript" src="./js//layui.all.js"></script>
+    <script>               
+     function getCookie(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg)) return unescape(arr[2]); else return null;
+    }
+/*
+    if (getCookie("name") !== 'giikin') {
+        alert('访问授权过期，需要重新登录');
+        location.href = 'login.html'
+    }*/
+    </script>
+    <script>     
+       var cacheStr = window.sessionStorage.getItem("cache"),
+        oneLoginStr = window.sessionStorage.getItem("oneLogin");
+    layui.use(['form', 'jquery', "layer"], function () {
+        var form = layui.form, $ = layui.jquery, layer = parent.layer === undefined ? layui.layer : top.layer;
+        if (!/http(s*):\/\//.test(location.href)) {
+            layer.alert("请先将项目部署到 localhost 下再进行访问【建议通过tomcat、webstorm、hb等方式运行，不建议通过iis方式运行】，否则部分数据将无法显示");
+        } else {
+            if (window.sessionStorage.getItem("lockcms") != "true" && window.sessionStorage.getItem("showNotice") != "true") {
+                showNotice();
+            }
+        }
+        if (window.sessionStorage.getItem('userFace') && $(".userAvatar").length > 0) {
+            $("#userFace").attr("src", window.sessionStorage.getItem('userFace'));
+            $(".userAvatar").attr("src", $(".userAvatar").attr("src").split("images/")[0] + "images/" + window.sessionStorage.getItem('userFace').split("images/")[1]);
+        } else {
+            $("#userFace").attr("src", "../../images/face.jpg");
+        }
+
+        function showNotice() {
+            layer.confirm('', {
+                anim: 4,
+                title: "2019/5/12更新内容",
+                closeBtn: 0,
+                btn: ['假装没看见', '知道了'],
+                content: '<div style="padding:15px 20px; "><br><b>新增教程：使用一个Chrome同时登陆多个邮箱账户</b></div>',
+            }, function () {
+                layer.msg('精神污染警告！！！<br><img  src="http://giikin.tvlove.club/open.gif"/>', {time: 200000});
+            }, function () {
+                tipsShow();
+                layer.msg('上车嗷', {icon: 1, time: 1000});
+                btn.on("click", function () {
+                    tipsShow();
+                });
+            });
+        }
+
+        function tipsShow() {
+            window.sessionStorage.setItem("showNotice", "true");
+        }
+
+        $(".showNotice").on("click", function () {
+            showNotice();
+        })
+    })</script>
+    <script>        function clearCache() {
+        window.sessionStorage.clear();
+        window.localStorage.clear();
+        var index = layer.msg('处理中...', {icon: 16, time: false, shade: 0.8});
+        setTimeout(function () {
+            layer.close(index);
+            layer.msg("已清空", {time: 1000});
+        }, 500);
+        setTimeout(function () {
+            window.location.reload();
+        }, 1000);
+    }// var is_remember = false;</script>
+    <script type="text/javascript">        $(function () {
+        setInterval(function () {
+            $("#hitokoto").load(location.href + " #hitokoto");
+            fetch('https://v1.hitokoto.cn').then(function (res) {
+                return res.json();
+            }).then(function (data) {
+                var hitokoto = document.getElementById('hitokoto');
+                var from = document.getElementById('from');
+                hitokoto.innerText = data.hitokoto;
+                from.innerText = data.from;
+            }).catch(function (err) {
+                console.error(err);
+            })
+        }, 120000);
+    })</script>
+</head>
+<body class="index" style="cursor:url('images/m.ico'),auto;">
+<div class="container">
+    <div class="logo"><a href="./index.html"><img src="images/logo.png"></a></div>
+    <span style="display:inline-block;width:25%;margin-left:10%;margin-top:15px;color:#fff"><marquee behavior="scroll"
+                                                                                                     direction="left"
+                                                                                                     scrollamount="3"
+                                                                                                     id="notice">据不完全统计，你每节省一分钟就能多出60秒的闲鱼时间</marquee></span>
+    <div class="left_open"><a><i title="展开左侧栏" class="iconfont">&#xe699;</i></a></div>
+    <ul class="layui-nav left fast-add" lay-filter="">
+        <li class="layui-nav-item">
+            <dl class="layui-nav-child">
+                <dd><a onclick="xadmin.open('最大化','http://www.baidu.com','','',true)"><i class="iconfont">&#xe6a2;</i>弹出最大化</a>
+                </dd>
+                <dd><a onclick="xadmin.open('弹出自动宽高','http://www.baidu.com')"><i class="iconfont">&#xe6a8;</i>弹出自动宽高</a>
+                </dd>
+                <dd><a onclick="xadmin.open('弹出指定宽高','http://www.baidu.com',500,300)"><i class="iconfont">&#xe6a8;</i>弹出指定宽高</a>
+                </dd>
+                <dd><a onclick="xadmin.add_tab('在tab打开','http://13.229.176.203/admin/order/orderquery.html')"><i
+                        class="iconfont">&#xe6b8;</i>在tab打开</a></dd>
+                <dd><a onclick="xadmin.add_tab('在tab打开刷新','http://13.229.176.203/admin/goods/goodsquery.html',true)"><i
+                        class="iconfont">&#xe6b8;</i>在tab打开刷新</a></dd>
+            </dl>
+        </li>
+    </ul>
+    <ul class="layui-nav right" lay-filter="">
+        <li class="layui-nav-item" pc><a href="javascript:;" onclick="clearCache()"><i class="layui-icon"
+                                                                                       data-icon="&#xe640;">&#xe640;</i><cite>
+            清空缓存</cite></a></li>
+        <img src="images/cool.gif" class="layui-nav-img" title="滴滴">
+        <li class="layui-nav-item"><a href="javascript:;">henbuzhengshi</a>
+            <dl class="layui-nav-child">
+                <!--<dd><a onclick="xadmin.open('个人信息','http://13.229.176.203/admin')">个人信息</a></dd>-->
+                  
+<dd><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1521426465&site=qq&menu=yes">
+    <img style="width: 79px; height: 25px;" src="/api/hao/img/pa.jpg" alt="个人信息" 
+    title="个人信息" border="0" height="25" vspace="0" width="79"/></a></dd>
+
+                <dd><a href="out.html">退出办公后台</a></dd>
+                <dd><a href="http://13.229.176.203/admin/admin/logout.html" target="_blank">退出正式后台</a></dd>
+            </dl>
+        </li>
+    </ul>
+</div>
+<div class="left-nav">
+    <div id="side-nav">
+        <ul id="nav">
+            <li><a href="javascript:;"><i class="iconfont left-nav-li" lay-tips="换货下单">&#xe6b8;</i><cite>换货下单</cite><i
+                    class="iconfont nav_right">&#xe697;</i></a>
+                <ul class="sub-menu">
+                    <li><a onclick="xadmin.add_tab('售后登记','register1.html')"><i
+                            class="iconfont">&#xe6a7;</i><cite>售后登记</cite>&nbsp;<i class="layui-icon layui-icon-read"></i></a></li>
+                    
+                    <li><a onclick="xadmin.add_tab('值日提醒','duty')"><i class="iconfont">&#xe6a7;</i><cite>值日提醒</cite></a>
+                    </li>
+                    <li><a onclick="xadmin.add_tab('产品查询','back.html')"><i
+                            class="iconfont">&#xe6a7;</i><cite>产品查询</cite></a></li>
+                    <li><a onclick="xadmin.add_tab('短信发送','./sms/go.html')"><i
+                            class="iconfont">&#xe6a7;</i><cite>短信发送</cite></a></li>
+                    <li><a onclick="xadmin.add_tab('短信回复','./sms')"><i
+                            class="iconfont">&#xe6a7;</i><cite>短信回复</cite></a></li>
+                    
+                    <li><a onclick="xadmin.add_tab('促单快查','check.html')"><i
+                            class="iconfont">&#xe6a7;</i><cite>促单查询</cite>&nbsp;<i class="layui-icon layui-icon-cart-simple"></i></a></li>
+                    <li><a onclick="xadmin.add_tab('促单慢查','core.html')"><i
+                            class="iconfont">&#xe6a7;</i><cite>促单慢查</cite>&nbsp;<i class="layui-icon layui-icon-cart-simple"></i></a></li>
+                    <li><a onclick="xadmin.add_tab('批量登记','more.html')"><i
+                            class="iconfont">&#xe6a7;</i><cite>批量登记</cite>&nbsp;<i class="layui-icon layui-icon-fonts-clear"></i></a></li>
+                    
+                    <li><a onclick="xadmin.add_tab('换货下单','clone')"><i
+                            class="iconfont">&#xe6a7;</i><cite>换货下单</cite>&nbsp;<i class="layui-icon layui-icon-auz"></i></a></li>
+                            <li><a onclick="xadmin.add_tab('促单查询','core.html')"><i
+                            class="iconfont">&#xe6a7;</i><cite>促单查询</cite>&nbsp;<i class="layui-icon layui-icon-cart-simple"></i></a></li>
+                    
+                    <li><a onclick="xadmin.add_tab('补发下单','clone_old.html')"><i
+                            class="iconfont">&#xe6a7;</i><cite>补发下单</cite>&nbsp;<i class="layui-icon layui-icon-auz"></i></a></li>
+                    
+                    <li><a onclick="xadmin.add_tab('香港审单','auditing/hk.html')"><i class="iconfont">&#xe6a7;</i><cite>香港审单</cite>&nbsp;<i class="layui-icon layui-icon-auz"></i></a>
+                    </li>
+                    <li><a onclick="xadmin.add_tab('森鸿物流','http://59.36.96.48:8019/query.aspx')"><i class="iconfont">&#xe6a7;</i><cite>森鸿物流</cite></a>
+                    </li>
+                    <li><a onclick="xadmin.add_tab('新竹物流','back/xz.html')"><i
+                            class="iconfont">&#xe6a7;</i><cite>新竹物流</cite></a></li>
+                    
+                    <li><a onclick="xadmin.add_tab('换货分渠道表','table')"><i class="iconfont">&#xe6a7;</i><cite>分渠道表</cite>&nbsp;<i class="layui-icon layui-icon-table"></i></a>
+                    </li>-->
+                    <li><a onclick="xadmin.add_tab('快登邮箱','set/email.html')"><i class="iconfont">&#xe6a7;</i><cite>快登邮箱</cite>&nbsp;<i class="layui-icon layui-icon-star-fill"></i></a>
+                    </li>
+                    <li><a onclick="xadmin.add_tab('新竹物流','back/xz.html')"><i
+                            class="iconfont">&#xe6a7;</i><cite>新竹物流</cite>&nbsp;<i class="layui-icon layui-icon-console"></i></a></li>
+                    <li><a onclick="xadmin.add_tab('森鸿物流','http://59.36.96.48:8019/query.aspx')"><i class="iconfont">&#xe6a7;</i><cite>森鸿物流</cite>&nbsp;<i class="layui-icon layui-icon-console"></i></a>
+                    </li>
+                    <li><a onclick="xadmin.add_tab('值日提醒','duty')"><i class="iconfont">&#xe6a7;</i><cite>值日提醒</cite>&nbsp;<i class="layui-icon layui-icon-user"></i></a>
+                    </li>
+                    <li><a onclick="xadmin.add_tab('系统自检','set')"><i class="iconfont">&#xe6a7;</i><cite>系统自检</cite>&nbsp;<i class="layui-icon layui-icon-set"></i></a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li><a href="javascript:;"><i class="iconfont left-nav-li" lay-tips="后台界面">&#xe723;</i><cite>后台界面</cite><i
+                    class="iconfont nav_right">&#xe697;</i></a>
+                <ul class="sub-menu">
+                    <li><a onclick="xadmin.add_tab('订单查询','http://13.229.176.203/admin/order/orderquery.html')"><i
+                            class="iconfont">&#xe6a7;</i><cite>订单查询</cite></a></li>
+                    <li><a onclick="xadmin.add_tab('商品列表','http://13.229.176.203/admin/goods/product.html')"><i
+                            class="iconfont">&#xe6a7;</i><cite>商品列表</cite></a></li>
+                    <li><a onclick="xadmin.add_tab('商品外编','http://13.229.176.203/admin/goods/outside.html')"><i
+                            class="iconfont">&#xe6a7;</i><cite>商品外编</cite></a></li>
+                </ul>
+            </li>
+            <li><a href="javascript:;"><i class="iconfont left-nav-li" lay-tips="常用网址">&#xe6b4;</i><cite>常用网址</cite><i
+                    class="iconfont nav_right">&#xe697;</i></a>
+                <ul class="sub-menu">
+                    <li><a href="https://zz.253.com/apps/replyrecord.html?appid=50&share_id=0" target="_blank"><i
+                            class="iconfont">&#xe6a7;</i><cite>导出短信</cite></a></li>
+                </ul>
+            </li>-->
+        </ul>
+        <canvas id='pio' width='200' height='250'></canvas>
+        <script src='http://giikin.tvlove.club/l2d.js'></script>
+        <script>loadlive2d('pio', 'images/girl/model.json');</script>
+        <script type="text/javascript">            (function ($) {
+            $('pre>code.lang-flow').each(function (index) {
+                $(this).addClass('nohighlight').attr('data-flow-chart-index', index).parent().addClass('display-none').after('<div id="flow-chart-' + index + '" class="flow-chart"></div>');
+            });
+        })(jQuery);</script>
+        <script type="text/x-mathjax-config">
+                                                                                                                    MathJax.Hub.Config({          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}        });
+        </script><!--
+        <blockquote class="layui-elem-quote layui-quote-nm"><span id="hitokoto">:D 获取中...</span><br>——<span
+                id="from"></span></blockquote>
+        <script>            fetch('https://v1.hitokoto.cn').then(function (res) {
+            return res.json();
+        }).then(function (data) {
+            var hitokoto = document.getElementById('hitokoto');
+            var from = document.getElementById('from');
+            hitokoto.innerText = data.hitokoto;
+            from.innerText = data.from;
+        }).catch(function (err) {
+            console.error(err);
+        })</script>-->
+    </div>
+</div>
+<div class="page-content">
+    <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
+        <ul class="layui-tab-title">
+            <li class="home"><i class="layui-icon">&#xe68e;</i>主页</li>
+        </ul>
+        <div class="layui-unselect layui-form-select layui-form-selected" id="tab_right">
+            <dl>
+                <dd data-type="this">关闭当前</dd>
+                <dd data-type="other">关闭其它</dd>
+                <dd data-type="all">关闭全部</dd>
+            </dl>
+        </div>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <iframe src='i.html' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+            </div>
+        </div>
+        <div id="tab_show"></div>
+    </div>
+</div>
+<div class="page-content-bg"></div>
+<style id="theme_style"></style>
+<div style='display:none'>
+    <script type="text/javascript" src="https://s23.cnzz.com/z_stat.php?id=1277591617&web_id=1277591617"></script>
+</div>
+</body>
+</html>

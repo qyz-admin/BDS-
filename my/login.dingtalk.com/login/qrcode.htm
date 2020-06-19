@@ -1,0 +1,474 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit" />
+    <script src="//g.alicdn.com/dingding/admin-panel/0.0.6/bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+    <title>扫码登录</title>
+    <meta name="description" content="企业注册并上传企业通讯录后，手机端随时随地找人不再难，与同事和客户多方通话，重要事DING一下电话使命必达。还可以申请免费企业云邮箱和请假系统、财务报销系统，以及自有OA的移动化管理使用">
+    <meta name="keywords" content="钉钉企业通讯录，免费企业邮箱，免费请假系统，免费财务费用报销系统，免费企业签到">
+    <link rel="icon" id="favicon" href="//g.alicdn.com/dingding/web/0.2.6/img/oldIcon.ico" type="image/x-icon" />
+    <script data-app="ewogICJjb21tb24iOiB7CiAgICAiYXBwa2V5IjogIjE5MTYiLAogICAgInVzZUN1c3RvbVRva2VuIjogZmFsc2UsCiAgICAic2NlbmUiOiAibG9naW4iLAogICAgImZvcmVpZ24iOiAwCiAgfSwKICAidWFiIjogewogICAgIkV4VGFyZ2V0IjogWwogICAgICAicHdkaWQiCiAgICBdLAogICAgInVzZUN1c3RvbVRva2VuIjogZmFsc2UsCiAgICAiRm9ybUlkIjogIm15X2Zvcm0iLAogICAgIkxvZ1ZhbCI6ICJ1YV9sb2ciLAogICAgIlNlbmRJbnRlcnZhbCI6IDIwLAogICAgIlNlbmRNZXRob2QiOiAzLAogICAgIk1heE1DTG9nIjogMTUwLAogICAgIk1heEtTTG9nIjogMTUwLAogICAgIk1heE1QTG9nIjogMTUwLAogICAgIk1heEdQTG9nIjogNSwKICAgICJNYXhUQ0xvZyI6IDE1MCwKICAgICJHUEludGVydmFsIjogNTAsCiAgICAiTVBJbnRlcnZhbCI6IDUwLAogICAgIk1heEZvY3VzTG9nIjogMTUwLAogICAgImlzU2VuZEVycm9yIjogMSwKICAgICJJbWdVcmwiOiAiLy9jZmQuYWxpeXVuLmNvbS9jb2xsZWN0b3IvYW5hbHl6ZS5qc29ucCIsCiAgICAiR2V0QXR0cnMiOiBbCiAgICAgICJocmVmIiwKICAgICAgInNyYyIKICAgIF0sCiAgICAiRmxhZyI6IDE5NjU1NjcKICB9LAogICJ1bWlkIjogewogICAgInRpbWVvdXQiOiAzMDAwLAogICAgInRpbWVzdGFtcCI6ICIkIXRpbWVzdGFtcCIsCiAgICAidG9rZW4iOiAiJCF0b2tlbiIsCiAgICAic2VydmljZVVybCI6ICJodHRwczovL3ludWYuYWxpcGF5LmNvbS9zZXJ2aWNlL3VtLmpzb24iLAogICAgImFwcE5hbWUiOiAiJCFhcHBOYW1lIiwKICAgICJjb250YWluZXJzIjogewogICAgICAiZmxhc2giOiAiY29udGFpbmVyIiwKICAgICAgImRjcCI6ICJjb250YWluZXIiCiAgICB9CiAgfQp9" src="//g.alicdn.com/sd/pointman/js/pt.js"></script>
+    <!--<link rel="stylesheet" href="css/qrcode.css">-->
+    <style>
+        html,body{
+            margin: 0px;
+            padding: 0px;
+            height: 400px;
+            overflow: hidden;
+        }
+        div{
+            box-sizing:border-box;
+        }
+        input {
+            box-sizing:border-box;
+        }
+        @font-face {
+            font-family: 'iconfont';
+            src: url('//at.alicdn.com/t/font_1453203805_8289611.eot'); /* IE9*/
+            src: url('//at.alicdn.com/t/font_1453203805_8289611.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('//at.alicdn.com/t/font_1453203805_8289611.woff') format('woff'), /* chrome、firefox */
+            url('//at.alicdn.com/t/font_1453203805_8289611.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+            url('//at.alicdn.com/t/font_1453203805_8289611.svg#iconfont') format('svg'); /* iOS 4.1- */
+        }
+        .iconfont{
+            font-family:"iconfont" !important;
+            font-size:18px;
+            font-style:normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .login_content{
+            /*width: 356px;*/
+            /*height: 400px;*/
+            border: 1px solid #e8e8e8;
+            border-radius: 5px;
+            background: #f9f9f9;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .login_body{
+            width: auto;
+            /*height: 336px;*/
+            padding: 40px auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .login_qrcode{
+            position: relative;
+        }
+        .login_qrcode_content{
+            text-align: center;
+            height: 210px;
+            width: 210px;
+            margin: auto;
+            margin-top: 40px;
+        }
+        .login_qrcode_text{
+            margin-top: 20px;
+            text-align: center;
+            color: #898d90;
+            font-size: 14px;
+        }
+
+        .login_qrcode_scan{
+            margin-top: 20px;
+            text-align: center;
+            color: #898d90;
+            font-size: 14px;
+        }
+
+        .login_qrcode_refresh{
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            width: 210px;
+            height: 210px;
+            background: rgba(255,255,255,0.9);
+            z-index: 100;
+            text-align: center;
+            padding-top: 90px;
+            color: #fa5b5b;
+            font-size: 14px;
+            margin-left: -105px;
+            display: none;
+        }
+        .toast{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width:100%;
+            height:40px;
+            line-height:40px;
+            text-align:center;
+            opacity: 0;
+        }
+
+    </style>
+</head>
+
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&asid=AQAAAAA4Z+Nek8zbEgAAAADBv7k7xwH7yA==",id="tb-beacon-aplus",src="//g.alicdn.com/alilog/mlog/aplus_"+(navigator.userAgent.match(/iPhone|iPad|iPod|Android|AliApp|Yunos|cyclone/i)?"wap":"v2")+".js")
+</script>
+
+<div class="login_content">
+    <div class="login_body">
+
+        <div class="login_qrcode">
+            <div class="login_qrcode_content" id="qrcode"></div>
+            <div class="login_qrcode_text">
+                请使用钉钉扫描二维码登录
+                <span id="refreashQrCodeBtn" style="color:#38adff;cursor:pointer;"><span class="iconfont">&#xe600;</span>刷新</span>
+            </div>
+            <div class="login_qrcode_scan">
+                二维码已扫描
+            </div>
+            <div class="login_qrcode_refresh">您的二维码已失效，<br/>请点击下方刷新按钮</div>
+        </div>
+
+</div>
+<div id="_umfp" style="display:inline;width:1px;height:1px;overflow:hidden">
+</div>
+<script src="//g.alicdn.com/??ilw/cdnjs/jquery/1.8.3/jquery.min.js,dingding/home/0.1.5/js/qrcode.js"></script>
+<script>
+    (function (w, d, t) {
+        w._pointman_q = w._pointman_q || [];
+        _pointman_q.push(["um", function (umx) {
+            var container = document.getElementById("_umfp");
+            umx.init({
+                timeout: 3000,
+                serviceLocation: "cn",
+                appName: 'dingding',
+                model: 'PC',
+                containers:{flash:container ,dcp:container}
+            });
+        }]);
+    })(window, document, "script");
+
+</script>
+<script>
+    var toastTimer = null,
+            UA = window.navigator.userAgent,
+            uaName = UA.indexOf("Mac")!== -1 ? "Mac" : UA.indexOf("Win")!==-1 ? "Win" : "other";
+    var start = 0;
+    jQuery.fn.extend({
+        toast: function(text,type){
+            clearTimeout(toastTimer);
+            var me = this;
+            var icon = "";
+
+            switch(type){
+                case 'success':
+                    icon = "<span class='iconfont'></span>";
+                    break;
+                case 'error':
+                    icon = "<span class='iconfont'></span>";
+                    break;
+                case 'warning':
+                    icon = "<span class='iconfont'></span>";
+                    break;
+            }
+            var node = "<div class='toast toast_"+type+"'>"+icon+text+"</div>";
+            jQuery(this).find(".toast").remove();
+            jQuery(me).append(node);
+            jQuery(me).find(".toast").animate({opacity:1},500,'linear',function(){
+                toastTimer = setTimeout(function(){
+                    jQuery(me).find(".toast").animate({opacity:0},500,'linear',function(){
+                        jQuery(this).remove()
+                    })
+                },3000)
+            });
+        },
+        toastText: function(text,type){
+            clearTimeout(toastTimer);
+            var me = this;
+            var icon = "";
+
+            switch(type){
+                case 'success':
+                    icon = "<span class='iconfont'></span>";
+                    break;
+                case 'error':
+                    icon = "<span class='iconfont'></span>";
+                    break;
+                case 'warning':
+                    icon = "<span class='iconfont'></span>";
+                    break;
+            }
+            var node = "<div class='toast toast_text_"+type+"'>"+icon+text+"</div>";
+            jQuery(this).find(".toast").remove();
+            jQuery(me).append(node);
+            jQuery(me).find(".toast").animate({opacity:1},500,'linear',function(){
+                toastTimer = setTimeout(function(){
+                    jQuery(me).find(".toast").animate({opacity:0},500,'linear',function(){
+                        jQuery(this).remove()
+                    })
+                },3000)
+            });
+        }
+    })
+</script>
+<script type="text/javascript">
+    function styleWhiteList(key) {
+        var _k = jQuery.trim(key || '')
+        switch (_k) {
+            case 'background-color':
+            case 'margin':
+            case 'margin-top':
+            case 'margin-right':
+            case 'margin-botton':
+            case 'margin-left':
+            case 'padding':
+            case 'padding-top':
+            case 'padding-right':
+            case 'padding-botton':
+            case 'padding-left':
+            case 'border':
+            case 'border-top':
+            case 'border-right':
+            case 'border-botton':
+            case 'border-left':
+                return true;
+            default:
+                return false;
+        }
+    }
+    
+    var qrcodeStyle = getUrlParam("style", window.location.href);
+    if(qrcodeStyle && qrcodeStyle.length > 0) {
+    	var loginContent = jQuery(".login_content");
+    	var infos = qrcodeStyle.split(";");
+    	for(var i = 0; i < infos.length; i++) {
+			var keyValue = infos[i].split(":");
+            var key = jQuery.trim(keyValue[0])
+            if (!styleWhiteList(key)) {
+                continue;
+            }
+    		if(keyValue.length == 2) {
+    			loginContent.css(key, keyValue[1]);
+			}
+    	}
+    }
+    
+    updateQrCodeTipText(false);
+
+    if (false) {
+        var cssFile = getUrlParam("href", window.location.href);
+        loadCssFile(cssFile);
+    }
+    function loadCssFile(fileName){
+        var fileref = document.createElement("link");
+        fileref.setAttribute("rel", "stylesheet");
+        fileref.setAttribute("type", "text/css");
+        fileref.setAttribute("href", fileName);
+
+        if (typeof fileref!="undefined"){
+            document.getElementsByTagName("head")[0].appendChild(fileref);
+        }
+    }
+
+    var GOTO = getUrlParam('goto', window.location.href),
+            captchaSessionId = "",
+            currentCode = "";
+
+    try {
+        if(window.localStorage.getItem("dMobile")){
+            jQuery("#phone").val(window.localStorage.getItem("dMobile"));
+        }
+    } catch(e) {
+        // empty
+    }
+
+    getCode();
+
+    jQuery(".reGetCode").on("click",function(){
+        if(jQuery(this).hasClass("login_button_disabled")){
+            return;
+        }
+        jQuery(".login_img_code_content").show();
+        jQuery("#codeImgCode").val('');
+        getIndentifyingCode();
+        // countDown(30);
+    })
+
+
+    jQuery("#refreashQrCodeBtn").on("click",function(){
+        refreashQrCode();
+    })
+
+    function countDown(time){
+        var Timer = "";
+        jQuery(".reGetCode").addClass("login_button_disabled");
+        _countDown();
+        function _countDown(){
+            clearTimeout(Timer);
+            if(time<=0){
+                jQuery(".reGetCode").html("重新获取").removeClass("login_button_disabled");
+            }else{
+                jQuery(".reGetCode").html(time+" s");
+                time --;
+                Timer = setTimeout(function(){
+                    _countDown();
+                },1000);
+            }
+        }
+    }
+
+    function updateQrCodeTipText(scan){
+        if(scan){
+            jQuery(".login_qrcode_scan").show();
+            jQuery(".login_qrcode_text").hide();
+        } else {
+            jQuery(".login_qrcode_scan").hide();
+            jQuery(".login_qrcode_text").show();
+        }
+    }
+
+
+    function getCode(){
+        jQuery("#loadingGetCode").show();
+        jQuery(".login_qrcode_refresh").hide();
+        jQuery.ajax({
+            url: "/user/qrcode/generate",
+            type: 'GET',
+            timeout: '10000',
+            success: function(data) {
+                if(data.success){
+                    jQuery("#loadingGetCode").hide();
+                    jQuery("#qrcode").html('');
+                    new QRCode(document.getElementById('qrcode'), {
+                        render: 'canvas',
+                        width: 210,
+                        height: 210,
+                        text: "https://oapi.dingtalk.com/connect/qrcommit?showmenu=false&code=" + data.result + "&appid=" + getUrlParam("appid" , GOTO) + "&redirect_uri=" + encodeURIComponent(getUrlParam("redirect_uri" , GOTO)),
+                        colorDark: "#000",
+                        colorLight: "#ffffff",
+                        correctLevel: QRCode.CorrectLevel.M
+                    });
+                    document.getElementById('qrcode').title="";
+                    currentCode = data.result;
+                    getUmidToken(data.result);
+                }
+                jQuery("#loadingGetCode").hide();
+            },
+            error: function(err){
+                jQuery("#loadingGetCode").hide();
+                jQuery(".login_qrcode_refresh").html("您的网络异常，请检查您的网络后点击刷新按钮重试").show();
+            }
+        })
+    }
+    function getUmidToken(code){
+        var umid = '';
+        try{
+            umid = umx.getToken();
+        }catch(e){
+            if(start>300){
+                rotate(code,umid);
+                return;
+            }
+            setTimeout(function(){
+                start +=10;
+                getUmidToken(code);
+            },10);
+            return;
+        }
+        // console.log(start);
+        rotate(code,umid);
+    }
+
+    function rotate(code,umid){
+        if(jQuery('.login_qrcode').hasClass("hide")){
+            return false;
+        }
+        jQuery.ajax({
+            url: "/login/login_with_qr",
+            data: {
+                qrCode: code,
+                goto: GOTO,
+                pdmToken:umid
+            },
+            type: 'POST',
+            timeout: '10000',
+            success: function(data) {
+                //isGetStatus = false;
+                if(data.success){
+                    var _code = getUrlParam("loginTmpCode",data.data);
+                    POSTMessage(_code);
+                }else{
+                    if(data.code == "11019"){
+                        jQuery(".login_qrcode_refresh").html("您的二维码已失效，<br/>请点击下方刷新按钮").show();
+                        updateQrCodeTipText(false);
+                    } else if(data.code == "11041"){//二维码已扫码
+                        updateQrCodeTipText(true);
+                        if(code==currentCode){
+                            rotate(code,umid);
+                        }
+                    } else if(data.code == "11021"){
+                        if(code==currentCode){
+                            rotate(code,umid);
+                        }
+                        //rotate(code,umid);
+                    }else{
+                        jQuery(".login_qrcode_refresh").html("您的二维码已失效，<br/>请点击下方刷新按钮").show();
+                        updateQrCodeTipText(false);
+                    }
+                }
+            },
+            error: function(err){
+                //isGetStatus = false;
+                jQuery(".login_qrcode_refresh").html("您的网络异常，请检查您的网络后点击刷新按钮重试").show();
+            }
+        })
+    }
+
+    function refreashQrCode(){
+        getCode();
+    }
+
+    function getUrlParam(name, url) {
+        // 如果链接没有参数，或者链接中不存在我们要获取的参数，直接返回空
+        if (url.indexOf("?") == -1 || url.indexOf(name + '=') == -1) {
+            return '';
+        }
+        // 获取链接中参数部分
+        var queryString = url.substring(url.indexOf("?") + 1);
+        if (queryString.indexOf('#') > -1) {
+            queryString = queryString.substring(0, queryString.indexOf('#'));
+        };
+        // 分离参数对 ?key=value&key2=value2
+        var parameters = queryString.split("&");
+        var pos, paraName, paraValue;
+        for (var i = 0; i < parameters.length; i++) {
+            // 获取等号位置
+            pos = parameters[i].indexOf('=');
+            if (pos == -1) {
+                continue;
+            }
+            // 获取name 和 value
+            paraName = parameters[i].substring(0, pos);
+            paraValue = parameters[i].substring(pos + 1);
+            // 如果查询的name等于当前name，就返回当前值，同时，将链接中的+号还原成空格
+            if (paraName == name) {
+                return decodeURIComponent(paraValue.replace("+", " "));
+            }
+        }
+        return '';
+    }
+
+    function POSTMessage(code){
+        try {
+            window.localStorage.setItem("dMobile",jQuery('#phone').val());
+        } catch(e) {
+            // empty
+        }
+        window.parent.postMessage(code,'*');
+    }
+</script>
+</body>
+</html>

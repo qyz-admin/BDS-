@@ -1,0 +1,160 @@
+<!doctype html>
+<html class="x-admin-sm">
+<head>
+    <meta charset="UTF-8">
+    <title>吉客印【不正式】后台</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/xadmin.css">
+    <!-- <link rel="stylesheet" href="./css/theme5.css"> -->
+    <script src="http://giikin.tvlove.club/jquery.min.js"></script>
+    <script src="./lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/xadmin.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        // 是否开启刷新记忆tab功能
+         var is_remember = false;
+        function getCookie(name)
+        {
+            var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+            if(arr=document.cookie.match(reg)) return unescape(arr[2]);
+            else return null;
+        }
+        /*
+        if (getCookie("name") !== 'giikin'){
+            alert('访问授权过期，需要重新登录');
+            location.href='login.html'
+        }*/
+    </script>
+    <style>        textarea::-webkit-input-placeholder {
+        color: white;
+    }
+
+    textarea::-moz-placeholder {
+        color: white;
+    }
+
+    textarea:-moz-placeholder {
+        color: white;
+    }
+
+    textarea:-ms-input-placeholder {
+        color: white;
+    }</style>
+</head>
+<body style="cursor:url('images/m.ico'),auto;"><br>
+<video autoplay loop="loop" muted>
+    <script language="javascript">
+        url = new Array();
+        url[0] = "http://giikin.tvlove.club/0.mp4";
+        url[1] = "http://giikin.tvlove.club/1.mp4";
+        url[2] = "http://giikin.tvlove.club/2.mp4";
+        url[3] = "http://giikin.tvlove.club/3.mp4";
+        url[4] = "http://giikin.tvlove.club/4.mp4";
+        url[5] = "http://giikin.tvlove.club/5.mp4";
+        url[6] = "http://giikin.tvlove.club/7.mp4";
+        url[7] = "http://giikin.tvlove.club/video15.mp4";
+        url[8] = "http://giikin.tvlove.club/video16.mp4";
+        url[9] = "http://giikin.tvlove.club/video17.mp4";
+        url[10] = "http://giikin.tvlove.club/video18.mp4";
+        url[11] = "http://giikin.tvlove.club/video19.mp4";
+        url[12] = "http://giikin.tvlove.club/video20.mp4";
+        url[13] = "http://giikin.tvlove.club/video21.mp4";
+        url[14] = "http://giikin.tvlove.club/video22.mp4";
+        url[15] = "http://giikin.tvlove.club/video23.mp4";
+        url[16] = "http://giikin.tvlove.club/video24.mp4";
+        url[17] = "http://giikin.tvlove.club/video25.mp4";
+        url[18] = "http://giikin.tvlove.club/video26.mp4";
+        url[19] = "http://giikin.tvlove.club/video27.mp4";
+        url[20] = "http://giikin.tvlove.club/video28.mp4";
+        url[21] = "http://giikin.tvlove.club/video29.mp4";
+        url[22] = "http://giikin.tvlove.club/video30.mp4";
+        url[23] = "http://giikin.tvlove.club/video31.mp4";
+        url[24] = "http://giikin.tvlove.club/video32.mp4";
+        url[25] = "http://giikin.tvlove.club/video33.mp4";
+        url[26] = "http://giikin.tvlove.club/video34.mp4";
+        url[27] = "http://giikin.tvlove.club/video35.mp4";
+        url[28] = "http://giikin.tvlove.club/video36.mp4";
+
+        i = Math.random() * url.length;
+        i = Math.floor(i);
+        str = "<source id='linkID' src='" + url[i] + "' type='video/mp4'>";
+
+        document.write(str);
+        document.write(linkID.href);
+
+    </script>
+</video>
+<form id="form" method="post" onsubmit="return false">
+    <div class="layui-form-item layui-form-text" align=center><textarea
+            style="border:0px;background:none;border:1px solid #ccc;color:white;font-weight:bold" class="layui-textarea"
+            placeholder="粘贴整列订单号" rows="5" cols="30" name='orders'></textarea><br>
+        <button type="submit" onclick="video()" id="test1"
+                class="layui-btn layui-btn-normal layui-anim layui-btn-radius layui-bg-black layui-anim-scale">一键检测<i
+                class="layui-icon layui-icon-search" style="font-size: 15px;"></i></button>
+        <button type="reset"
+                class="layui-btn layui-btn-normal layui-btn-radius layui-anim layui-anim-scale layui-bg-black">重置列表<i
+                class="layui-icon layui-icon-refresh-1" style="font-size: 15px;"></i></button>
+    </div>
+</form>
+<div id="ullist" align=center>
+    <marquee behavior="scroll" direction="left" scrollamount="3" id="notice">
+        <div class="layui-inline"><img src="images/i.gif" class="layui-circle"/></div>
+        <font color="#009688"></font></marquee>
+</div>
+</body>
+</html>
+<script>    function buttonCountdown($el, msNum, timeFormat) {
+    var text = $el.data("text") || $el.text(), timer = 0;
+    $el.prop("disabled", true).addClass("disabled").on("bc.clear", function () {
+        clearTime();
+    });
+    (function countdown() {
+        var time = showTime(msNum)[timeFormat];
+        $el.text(time + '后查询');
+        if (msNum <= 0) {
+            msNum = 0;
+            clearTime();
+        } else {
+            msNum -= 1000;
+            timer = setTimeout(arguments.callee, 1000);
+        }
+    })();
+    function clearTime() {
+        clearTimeout(timer);
+        $el.prop("disabled", false).removeClass("disabled").text(text);
+    }
+
+    function showTime(ms) {
+        var d = Math.floor(ms / 1000 / 60 / 60 / 24), h = Math.floor(ms / 1000 / 60 / 60 % 24),
+            m = Math.floor(ms / 1000 / 60 % 60), s = Math.floor(ms / 1000 % 60), ss = Math.floor(ms / 1000);
+        return {
+            d: d + "天",
+            h: h + "小时",
+            m: m + "分",
+            ss: ss + "秒",
+            "d:h:m:s": d + "天" + h + "小时" + m + "分" + s + "秒",
+            "h:m:s": h + "小时" + m + "分" + s + "秒",
+            "m:s": m + "分" + s + "秒"
+        };
+    }
+
+    return this;
+}
+$("#test1").on("click", function () {
+    buttonCountdown($(this), 1000 * 60, "ss");
+});
+$("#test1-clear").on("click", function () {
+    $("#test1").trigger("bc.clear");
+});</script>
+</body>
+</html>

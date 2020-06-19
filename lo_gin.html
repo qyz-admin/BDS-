@@ -1,0 +1,88 @@
+﻿<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>请求登录</title>
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<script type="text/javascript" src="./js/jquery-2.1.1.min.js"></script>
+
+<style type="text/css">
+	.login{
+			text-align: center;
+			margin: 50px 0;
+			font:normal 14px/24px 'MicroSoft YaHei';
+			color: #000000;
+		}
+</style>
+</head>
+<body>
+<div class="htmleaf-container">
+	<div class="login">
+         <h1>数据管理系统</h1>
+    </div>
+	<div class="wrapper">
+		<div class="container">
+			<h1>Welcome</h1>
+
+			<form class="form">
+				<input type="text" placeholder="Username">
+				<input type="password" placeholder="Password">
+				<button type="submit" id="login-button">Login</button>
+			</form>
+		</div>
+		
+		<ul class="bg-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</div>
+
+<script>
+$('#login-button').click(function (event) {
+	// 点击登录
+	//var name = $("")
+	event.preventDefault();
+	$('form').fadeOut(500);
+	$('.wrapper').addClass('form-success');
+
+    setTimeout(function () {
+           var form = $("<form></form>");
+               form.attr({"action": "./index2.html"});
+          // var idInput = $("<input type='hidden'>");
+			   // idInput.attr({"name": "user_id"});
+			   // idInput.val(userId);
+			   // form.append(idInput);
+			$("html").append(form);
+			   form.submit();
+        }, 300);
+});
+
+// 点击登录
+	// $('.login').click(function(){
+	// 	var form = $("<form method='post'></form>");
+	// 		form.attr({"action": "/admin/login_by_dingtalk/chooselogin.html"});
+
+	// 	var idInput = $("<input type='hidden'>");
+	// 		idInput.attr({"name": "user_id"});
+	// 		idInput.val(userId);
+	// 		form.append(idInput);
+	// 		$("html").append(form);
+	// 		form.submit();
+	// })
+</script>
+
+
+</body>
+</html>
